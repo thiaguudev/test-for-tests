@@ -50,19 +50,13 @@ export default function SurveyCard({
       <div>
         <p className="text-xl">{responses} responses</p>
         <Separator className="m-3" />
-        <div className="flex justify-between items-center">
-          <Link
-            onClick={handleCopy}
-            href={link}
-            className="text-emerald-500 hover:text-emerald-600 text-xl"
-          >
-            {hasCopy ? "Copied!" : "Copy survey link"}
-          </Link>
-          <div className="flex items-center space-x-2">
-            <Switch id="airplane-mode" checked={published} />
-            <Label htmlFor="airplane-mode">Publish</Label>
-          </div>
-        </div>
+        <Link
+          onClick={handleCopy}
+          href={link}
+          className="text-emerald-500 hover:text-emerald-600 text-xl"
+        >
+          {hasCopy ? "Copied!" : "Copy survey link"}
+        </Link>
       </div>
     </div>
   );
