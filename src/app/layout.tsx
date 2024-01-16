@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Provider } from "@/components/Providers";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
   title: "Survey Apoli",
@@ -21,11 +22,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={cn("bg-[#f9fafb]", fontSans.className)}>
-        <main className="w-full max-w-7xl mx-auto min-h-screen flex flex-col justify-between items-center antialiased">
+        <main className="w-full mx-auto min-h-screen flex justify-between items-center antialiased">
+          {/* <main className="w-full max-w-7xl mx-auto min-h-screen flex flex-col justify-between items-center antialiased"> */}
           <Provider>
-            <Header />
+            {/* <Header /> */}
+            <Sidebar />
             {children}
-            <Footer />
+            {/* <Footer /> */}
           </Provider>
         </main>
         <Analytics />
