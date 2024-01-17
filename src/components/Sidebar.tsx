@@ -51,26 +51,25 @@ export default function Sidebar() {
             <p className="font-bold text-xl">Survey Apoli</p>
           </div>
           <Separator className="my-2" />
+          {/* CENTER */}
+
+          <div className="flex flex-col gap-2">
+            <SidebarItem
+              to="/dashboard"
+              icon={LayoutDashboard}
+              name="Dashboard"
+            />
+            <SidebarItem to="/surveys" icon={MessagesSquare} name="Pesquisas" />
+            <SidebarItem
+              to="/online-reputation"
+              icon={Star}
+              name="Reputação Online"
+            />
+            <SidebarItem to="/integrations" icon={Blocks} name="Integrações" />
+          </div>
+          {/* END CENTER */}
         </div>
         {/* END TOP */}
-
-        {/* CENTER */}
-
-        <div className="flex flex-col gap-2">
-          <SidebarItem
-            to="/dashboard"
-            icon={LayoutDashboard}
-            name="Dashboard"
-          />
-          <SidebarItem to="/surveys" icon={MessagesSquare} name="Pesquisas" />
-          <SidebarItem
-            to="/online-reputation"
-            icon={Star}
-            name="Reputação Online"
-          />
-          <SidebarItem to="/integrations" icon={Blocks} name="Integrações" />
-        </div>
-        {/* END CENTER */}
 
         {/* BOTTOM */}
         <div className="flex flex-col gap-2 justify-between">
