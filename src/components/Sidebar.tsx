@@ -11,10 +11,12 @@ import {
   Moon,
   Settings,
   Star,
+  LogOut,
 } from "lucide-react";
 
 import { Separator } from "./ui/separator";
 import { Switch } from "./ui/switch";
+import { Button } from "./ui/button";
 
 type SidebarItemProps = {
   to: string;
@@ -41,7 +43,7 @@ function SidebarItem({ to, name, icon: Icon }: SidebarItemProps) {
 export default function Sidebar() {
   return (
     <aside className="bg-[#21262D] w-[276px] min-h-screen rounded-tr-xl rounded-br-xl text-white flex justify-center">
-      <div className="py-8 flex flex-col items-start justify-between">
+      <div className="pt-8 pb-3 flex flex-col items-start justify-between">
         {/* TOP */}
         <div className="flex gap-3 items-center mb-6 justify-center flex-col w-full">
           <div className="flex gap-3">
@@ -60,21 +62,21 @@ export default function Sidebar() {
             icon={LayoutDashboard}
             name="Dashboard"
           />
-          <SidebarItem to="/surveys" icon={MessagesSquare} name="Surveys" />
+          <SidebarItem to="/surveys" icon={MessagesSquare} name="Pesquisas" />
           <SidebarItem
             to="/online-reputation"
             icon={Star}
-            name="Online Reputation"
+            name="Reputação Online"
           />
-          <SidebarItem to="/integrations" icon={Blocks} name="Integrations" />
+          <SidebarItem to="/integrations" icon={Blocks} name="Integrações" />
         </div>
         {/* END CENTER */}
 
         {/* BOTTOM */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 justify-between">
           <Separator className="my-2" />
-          <span className="text-[#83899F]">Preferences</span>
-          <SidebarItem to="/settings" icon={Settings} name="Settings" />
+          <span className="text-[#83899F]">Preferências</span>
+          <SidebarItem to="/settings" icon={Settings} name="Configurações" />
           <SidebarItem to="/help-center" icon={HelpCircle} name="Help Center" />
 
           <div className="flex items-center gap-[10px] bg-[#313743] rounded py-3 px-4">
@@ -84,6 +86,11 @@ export default function Sidebar() {
             </div>
             <Switch />
           </div>
+
+          <Button variant="destructive" className="flex gap-3">
+            <LogOut />
+            <span className="text-lg">Sair</span>
+          </Button>
         </div>
         {/* END BOTTOM */}
       </div>
