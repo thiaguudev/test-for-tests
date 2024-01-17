@@ -87,9 +87,9 @@ export default function Sidebar() {
             <Switch />
           </div>
 
-          <Button variant="destructive" className="flex gap-3">
+          <Button variant="destructive" className="flex gap-3 bg-red-500">
             <LogOut />
-            <span className="text-lg">Sair</span>
+            {/* <span className="text-lg">Sair</span> */}
           </Button>
         </div>
         {/* END BOTTOM */}
