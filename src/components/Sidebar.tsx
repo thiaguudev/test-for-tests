@@ -30,8 +30,8 @@ function SidebarItem({ to, name, icon: Icon }: SidebarItemProps) {
   return (
     <Link
       href={to}
-      className={`flex w-[240px] h-[44px] items-center px-4 py-3 gap-4 rounded-xl hover:bg-[#14161B] ${
-        to === path && "bg-[#14161B] border-2 solid border-emerald-300"
+      className={`flex w-[240px] h-[44px] items-center px-4 py-3 gap-4 rounded-xl hover:bg-[#14161B] transition-all duration-100 hover:border-2 hover:solid hover:border-emerald-300 ${
+        to === path && "bg-[#14161B]"
       }`}
     >
       <Icon size={24} />
