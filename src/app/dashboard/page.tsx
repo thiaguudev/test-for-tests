@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Survey Apoli - Integrations",
-  description: "Integrations with other apps",
+  description: "Dashboard",
 };
 
-export default function IntegrationsPage() {
+export default function DashboardPage() {
   return <div />;
 }
