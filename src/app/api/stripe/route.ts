@@ -47,7 +47,7 @@ export async function GET() {
               name: "sourveyapoli",
               description: "Sourvey Apoli",
             },
-            unit_amount: 2000,
+            unit_amount: 9900,
             recurring: {
               interval: "month",
             },

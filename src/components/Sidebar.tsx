@@ -11,15 +11,11 @@ import {
   Moon,
   Settings,
   Star,
-  LogOut,
 } from "lucide-react";
 
 import { Separator } from "./ui/separator";
 import { Switch } from "./ui/switch";
-import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
-import { ToastAction } from "./ui/toast";
-import { cn } from "@/lib/utils";
 
 type SidebarItemProps = {
   to: string;
@@ -44,8 +40,6 @@ function SidebarItem({ to, name, icon: Icon }: SidebarItemProps) {
 }
 
 export default function Sidebar() {
-  const { toast } = useToast();
-
   return (
     <aside className="bg-[#21262D] w-[276px] min-h-screen rounded-tr-xl rounded-br-xl text-white flex justify-center">
       <div className="pt-8 pb-3 flex flex-col items-start justify-between">
@@ -82,22 +76,6 @@ export default function Sidebar() {
             </div>
             <Switch />
           </div>
-
-          <Button
-            variant="destructive"
-            className="flex gap-3 bg-red-500"
-            onClick={() =>
-              toast({
-                title: "Scheduled: Catch up",
-                description: "Friday, February 10, 2023 at 5:57 PM",
-                action: (
-                  <ToastAction altText="Try again">Try again</ToastAction>
-                ),
-              })
-            }
-          >
-            <LogOut />
-          </Button>
         </div>
       </div>
     </aside>

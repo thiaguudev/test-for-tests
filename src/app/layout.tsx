@@ -6,8 +6,9 @@ import { fontSans } from "@/config/fonts";
 import { cn } from "@/lib/utils";
 import { Provider } from "@/components/Providers";
 import Sidebar from "@/components/Sidebar";
-import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import Header from "@/components/SidebarTop";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Survey Apoli",
@@ -25,7 +26,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <main className="w-full mx-auto min-h-screen flex justify-between items-center antialiased">
           <Provider>
             <Sidebar />
-            <div className="flex-1 px-4">{children}</div>
+            <div className="flex-1 flex-col min-h-screen px-4">
+              <Header />
+              <div className="flex-1">{children}</div>
+            </div>
           </Provider>
           <Toaster />
         </main>
