@@ -17,6 +17,9 @@ import {
 import { Separator } from "./ui/separator";
 import { Switch } from "./ui/switch";
 import { Button } from "./ui/button";
+import { useToast } from "./ui/use-toast";
+import { ToastAction } from "./ui/toast";
+import { cn } from "@/lib/utils";
 
 type SidebarItemProps = {
   to: string;
@@ -41,24 +44,20 @@ function SidebarItem({ to, name, icon: Icon }: SidebarItemProps) {
 }
 
 export default function Sidebar() {
+  const { toast } = useToast();
+
   return (
     <aside className="bg-[#21262D] w-[276px] min-h-screen rounded-tr-xl rounded-br-xl text-white flex justify-center">
       <div className="pt-8 pb-3 flex flex-col items-start justify-between">
-        {/* TOP */}
         <div className="flex gap-3 items-center mb-6 justify-center flex-col w-full">
           <div className="flex gap-3">
             <Image src="/grid.svg" width={30} height={30} alt="" />
             <p className="font-bold text-xl">Survey Apoli</p>
           </div>
           <Separator className="my-2" />
-          {/* CENTER */}
 
           <div className="flex flex-col gap-2">
-            <SidebarItem
-              to="/dashboard"
-              icon={LayoutDashboard}
-              name="Dashboard"
-            />
+            <SidebarItem to="/dashboard" icon={LayoutDashboard} name="Painel" />
             <SidebarItem to="/surveys" icon={MessagesSquare} name="Pesquisas" />
             <SidebarItem
               to="/online-reputation"
@@ -67,31 +66,39 @@ export default function Sidebar() {
             />
             <SidebarItem to="/integrations" icon={Blocks} name="Integrações" />
           </div>
-          {/* END CENTER */}
         </div>
-        {/* END TOP */}
 
-        {/* BOTTOM */}
         <div className="flex flex-col gap-2 justify-between">
           <Separator className="my-2" />
           <span className="text-[#83899F]">Preferências</span>
+
           <SidebarItem to="/settings" icon={Settings} name="Configurações" />
           <SidebarItem to="/help-center" icon={HelpCircle} name="Help Center" />
 
           <div className="flex items-center gap-[10px] bg-[#313743] rounded py-3 px-4">
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center grow">
               <Moon size={24} />
               <span className="text-[17px]">Dark Mode</span>
             </div>
             <Switch />
           </div>
 
-          <Button variant="destructive" className="flex gap-3 bg-red-500">
+          <Button
+            variant="destructive"
+            className="flex gap-3 bg-red-500"
+            onClick={() =>
+              toast({
+                title: "Scheduled: Catch up",
+                description: "Friday, February 10, 2023 at 5:57 PM",
+                action: (
+                  <ToastAction altText="Try again">Try again</ToastAction>
+                ),
+              })
+            }
+          >
             <LogOut />
-            {/* <span className="text-lg">Sair</span> */}
           </Button>
         </div>
-        {/* END BOTTOM */}
       </div>
     </aside>
   );

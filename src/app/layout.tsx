@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Provider } from "@/components/Providers";
 import Sidebar from "@/components/Sidebar";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Survey Apoli",
@@ -21,11 +22,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={cn("bg-[#f9fafb]", fontSans.className)}>
-        <main className="w-full mx-auto min-h-screen flex justify-between items-center antialiased box-border">
+        <main className="w-full mx-auto min-h-screen flex justify-between items-center antialiased">
           <Provider>
             <Sidebar />
-            {children}
+            <div className="flex-1 px-4">{children}</div>
           </Provider>
+          <Toaster />
         </main>
         <Analytics />
         <Script
@@ -41,6 +43,21 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 s.async=1;
                 d.getElementsByTagName("head")[0].appendChild(s);
               })();
+            `,
+          }}
+        />
+        <Script
+          id="hotjar"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:3831247,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
             `,
           }}
         />
