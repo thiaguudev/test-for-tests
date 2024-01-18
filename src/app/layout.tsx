@@ -24,13 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className={cn("bg-[#f9fafb]", fontSans.className)}>
         <main className="w-full mx-auto min-h-screen flex justify-between items-center antialiased">
-          <Provider>
-            <Sidebar />
-            <div className="flex-1 flex-col min-h-screen px-4">
-              <Header />
-              <div className="flex-1">{children}</div>
-            </div>
-          </Provider>
+          <Provider>{children}</Provider>
           <Toaster />
         </main>
         <Analytics />

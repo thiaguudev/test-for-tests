@@ -1,6 +1,3 @@
-import Image from "next/image";
-
-import { Avatar } from "./ui/avatar";
 import { UserNav } from "./UserNav";
 
 export default function Header() {
